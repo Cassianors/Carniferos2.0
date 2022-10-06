@@ -1,5 +1,5 @@
 
-  import java.awt.Dimension;
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -8,8 +8,7 @@ import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
-import
-  javax.swing.JLabel;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
   
@@ -19,6 +18,7 @@ import javax.swing.JTextField;
   private final JLabel lableLogradouro; 
   private final JLabel lableCidade; 
   private final JLabel lableIdade;
+
   
   private final JTextField txtNome;
   private final JTextField txtLogradouro;
@@ -32,9 +32,11 @@ import javax.swing.JTextField;
   
   
   
-  public Cadastro() { super();
+  public Cadastro() { 
+	  
+	  super();
   
-  this.setTitle("Cadastro"); 
+  this.setTitle("Carniferos"); 
   this.setSize(450,500);
   
   this.setLayout(new FlowLayout());
@@ -48,9 +50,9 @@ import javax.swing.JTextField;
   
   lableIdade = new JLabel("Idade");
   txtIdade = new JTextField();
-  txtIdade.setPreferredSize(new Dimension(50,25));
+  txtIdade.setPreferredSize(new Dimension(25,25));
   
-  String[] Sexos = {"Sexos", "Feminino", "Masculino", "Outros"};
+  String[] Sexos = {"Sexo", "Feminino", "Masculino"};
   jcbSexos = new JComboBox(Sexos);
   String[] Estados = {"Estados", "AC","AL" ,"AP", "AM", "BA", "CE","ES","GO","MA","MT","MS","MG","PA","PB","PR","PE","PI","RJ","RN","RS","RO","RR","SC","SP","SE","TO","DF"};
   jcbEstados = new JComboBox(Estados); 
@@ -60,12 +62,10 @@ import javax.swing.JTextField;
   JCheckBox cbCaninos = new JCheckBox("Caninos");
   JCheckBox cbFelinos = new JCheckBox("Felinos");
   JCheckBox cbRoedores = new JCheckBox("Roedores");
-  JCheckBox cbAves = new JCheckBox("Aves");
-  JCheckBox cbOutros = new JCheckBox("Outros");
   
   lableLogradouro = new JLabel("Logradouro");
   txtLogradouro = new JTextField();
-  txtLogradouro.setPreferredSize(new Dimension(335,25));
+  txtLogradouro.setPreferredSize(new Dimension(350,25));
   
   lableCidade = new JLabel("Cidade");
   txtCidade = new JTextField();
@@ -79,23 +79,19 @@ import javax.swing.JTextField;
 	  public void actionPerformed(ActionEvent ae) {
   
 		  String nome = txtNome.getText();
+		  String cidade = txtCidade.getText();
 		  int idade = Integer.parseInt(txtIdade.getText());
 		  
-		  boolean Canino = cbCaninos.isSelected();
-		  boolean Felino = cbCaninos.isSelected();
-		  boolean Roedor = cbCaninos.isSelected();
-		  boolean Ave = cbCaninos.isSelected();
-		  boolean Outro = cbCaninos.isSelected();
-		  
+		 
 		  JOptionPane.showMessageDialog(null, "Dados do Cliente"
 				  + "\n Nome: "+ nome
-				  + "\n Idade: " + idade
-				  + "\n\n As especies que possui:"
+				  + "\n Idade: " + idade 
+				  + "\n Cidade: " + cidade			
+				  + "\n\n As especies que possui são: "
 				  + "\n Canino:" + (cbCaninos.isSelected() ?  "Sim" : "Não")
 				  + "\n Felino:" + (cbFelinos.isSelected() ? "Sim" : "Não")
 				  + "\n Roedor:" + (cbRoedores.isSelected() ? "Sim" : "Não")
-				  + "\n Ave:" + (cbAves.isSelected() ? "Sim" : "Não")
-				  + "\n Outro:" + (cbOutros.isSelected() ? "Sim" : "Não")
+				  
 				  
 				  );
 		  JOptionPane.showMessageDialog(null, "Cliente Cadastrado!");
@@ -107,15 +103,15 @@ import javax.swing.JTextField;
 	  this.add(lableNome); 
 	  this.add(txtNome);
 	  
+	  this.add(lableLogradouro);
+	  this.add(txtLogradouro);
+	  
 	  this.add(lableIdade);
 	  this.add(txtIdade);
 	  
 	  this.add(jcbSexos);
 	  this.add(jcbEstados);
-	  
-	  this.add(lableLogradouro);
-	  this.add(txtLogradouro);
-	  
+	 
 	  this.add(lableCidade);
 	  this.add(txtCidade);
 	  
@@ -123,8 +119,6 @@ import javax.swing.JTextField;
 	  this.add(cbCaninos);
 	  this.add(cbFelinos);
 	  this.add(cbRoedores);
-	  this.add(cbAves);
-	  this.add(cbOutros);
 	  
 	  this.add(botaoCadastrar);
 	  
